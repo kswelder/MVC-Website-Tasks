@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bot de sinal de apostas</title>
+    <link href="../static/styles/home.css" rel="stylesheet" th:href="@{/styles/home.css}" >
+    <link href="../static/styles/header.css" rel="stylesheet" th:href="@{/styles/header.css}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">INICIO</a></li>
+                <li><a href="/about">SOBRE</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <h1>Tarefas</h1>
+        </div>
+        <form method="post" th:object="${odds}" th:action="@{/}">
+            <div id="form_busca">
+                <div>
+                    <input name="name" type="text" placeholder="Jogo"/>
+                </div>
+                <div>
+                    <select name="select">
+                        <option value="Futebol">Futebol</option>
+                        <option value="Basquete">Basquete</option>
+                    </select>
+                </div>
+            </div>
+            <div id="button_buscar">
+                <input type="submit" value="Buscar">
+            </div>
+        </form>
+        <div>
+            <ul th:each="task: ${tasks}">
+                <li th:text="*{task}"></li>
+            </ul>
+        </div>
+    </main>
+    <footer></footer>
+    <script th:src="@{/resources/static/scripts/header.js}"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+}
+
+header {
+    margin-top: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: large;
+    display: flex;
+}
+header #logo-box {
+    margin-right: 150px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+header #logo-box img {
+    width: 100%;
+    height: 100%;
+}
+header nav{
+    display: grid;
+}
+header nav ul {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    list-style: none;
+}
+header nav ul li {
+    float: left;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+header nav ul li a {
+    display: grid;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px;
+    color: black;
+    padding: 7px 60px;
+    transition: 600ms;
+    border-radius: 20px;
+    border: 3px solid rgba(0, 0, 0, 0);
+}
+header nav ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.267);
+    border: 3px solid rgba(0, 0, 0, 0.555);
+    border-radius: 20px;
+    color: rgba(0, 0, 0, 0.61);
+}
+main {
+    margin-top: 10vh;
+}
+
+@media (max-width: 650px) {
+    header {
+        display: grid;
+        margin: 0;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 98%;
+        border-radius: 9px;
+    }
+    header #logo-box {
+        margin: 0px;
+        margin-right: 0px;
+    }
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+    header nav ul li a {
+        margin: 3px;
+        padding: 7px 40px;
+        transition: 600ms;
+        border-radius: 8px;
+        border: 3px solid rgba(0, 0, 0, 0);
+    }
+    header nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.267);
+        border: 3px solid rgba(255, 255, 255, 0.555);
+        border-radius: 8px;
+        color: rgba(0, 0, 0, 0.61);
+    }
+    main {
+        margin-top: 45vh;
+    }
+}
