@@ -1,4 +1,4 @@
-package matheus.com.github.bot.controllers;
+package kswelder.com.github.bot.controllers;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import matheus.com.github.bot.services.TasksService;
+import kswelder.com.github.bot.services.TasksService;
 
 @Controller
 public class TasksController implements WebMvcConfigurer {

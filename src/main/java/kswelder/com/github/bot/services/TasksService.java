@@ -1,4 +1,4 @@
-package matheus.com.github.bot.services;
+package kswelder.com.github.bot.services;
 
 import org.springframework.stereotype.Service;
 
