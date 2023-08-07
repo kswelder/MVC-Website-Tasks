@@ -1,6 +1,5 @@
 package kswelder.com.github.task.controllers;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +18,11 @@ public class TasksController implements WebMvcConfigurer {
     @Autowired
     private TasksService tasksService;
 
-    public List<String> lista = Arrays.asList("1","2","3");
-
     @GetMapping("/")
     public String index(final Model model) throws Exception {
-        model.addAttribute("tasks", this.lista);
+        List<Task> listTasks = tasksService.listTasks();
+
+        model.addAttribute("tasks", listTasks);
         return "home";
     }
     @GetMapping("/about")
