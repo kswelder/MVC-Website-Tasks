@@ -31,7 +31,7 @@ public class TasksController implements WebMvcConfigurer {
     }
     @PostMapping("/")
     public String runBot(@ModelAttribute("tasks") Task task) {
-        System.out.println(task.getName());
+        tasksService.saveTask(task);
         return "retorno";
     }
 }
