@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import kswelder.com.github.task.models.Task;
@@ -29,9 +31,20 @@ public class TasksController implements WebMvcConfigurer {
     public String about(Model model) {
         return "about";
     }
-    @PostMapping("/")
-    public String runBot(@ModelAttribute("tasks") Task task) {
+    @GetMapping("/task/{id}")
+    public String taskPage(@PathVariable("id") String id, final Model model) {
+        model.addAttribute("task_id", id);
+
+        return "task";
+    }
+    @PostMapping("/saveTask")
+    public String saveTask(@ModelAttribute("tasks") Task task) {
         tasksService.saveTask(task);
         return "retorno";
+    }
+    @PutMapping("/updateTask/{id}")
+    public String updateTask(@PathVariable("id") String id,@ModelAttribute("tasks") Task task) {
+        tasksService.updateTask(id, task);
+        return "home";
     }
 }
