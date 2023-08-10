@@ -34,7 +34,7 @@ public class TasksController implements WebMvcConfigurer {
     }
     @GetMapping("/task/{id}")
     public String taskPage(@PathVariable("id") String id, final Model model) {
-        model.addAttribute("task_id", id);
+        model.addAttribute("task", tasksService.findTask(id));
 
         return "task";
     }
