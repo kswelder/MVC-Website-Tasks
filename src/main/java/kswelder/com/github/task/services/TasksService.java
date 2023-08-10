@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import kswelder.com.github.task.models.Task;
 import kswelder.com.github.task.repositorys.TasksRepository;
 
-
 @Service
 public class TasksService {
     @Autowired
@@ -50,5 +49,9 @@ public class TasksService {
     }
     public void deleteTask(String id) {
         repository.deleteById(id);
+    }
+    public Task findTask(String id) {
+        Optional<Task> register = repository.findById(id);
+        return register.get();
     }
 }
