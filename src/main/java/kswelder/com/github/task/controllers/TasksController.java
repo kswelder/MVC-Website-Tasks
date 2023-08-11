@@ -46,10 +46,10 @@ public class TasksController implements WebMvcConfigurer {
 
         return "retorno";
     }
-    @PutMapping("/updateTask")
-    public String updateTask(@ModelAttribute("tasks") Task task) {
-        tasksService.updateTask(task);
-        return "home";
+    @PutMapping("/updateTask/{id}")
+    public String updateTask(@PathVariable("id") String id,@ModelAttribute("tasks") Task task) {
+        tasksService.updateTask(id, task);
+        return "redirect:/";
     }
     @DeleteMapping("/deleteTask/{id}")
     public String deleteTask(@PathVariable("id") String id, final Model model) {
@@ -57,6 +57,6 @@ public class TasksController implements WebMvcConfigurer {
 
         model.addAttribute("message", "Task deleted");
 
-        return "retorno";
+        return "redirect:retorno";
     }
 }
