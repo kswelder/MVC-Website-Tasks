@@ -57,7 +57,7 @@
                         <li class="list-group-item" th:text="*{task.getTask_start()}"></li>
                         <li class="list-group-item" th:text="*{task.getTask_end()}"></li>
                         <li class="list-group-item"><a class="btn btn-primary" th:href="@{'/task/'+ ${task.getId()}}">Edit</a></li>
-                        <li class="list-group-item"><a class="btn btn-danger" th:action="@{'/deleteTask/'+ ${task.getId()}}" method="delete">Delete</a></li>
+                        <li class="list-group-item"><a class="btn btn-danger" th:href="@{'/deleteTask/'+ ${task.getId()}}">Delete</a></li>
                     </ul>
                 </li>
             </ul>
