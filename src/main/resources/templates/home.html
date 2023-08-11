@@ -20,7 +20,7 @@
         <div>
             <h1>Tarefas</h1>
         </div>
-        <form method="post" th:object="${tasks}" th:action="@{/}">
+        <form method="post" th:object="${tasks}" th:action="@{/saveTask}">
             <ul class="list-group list-group-horizontal">
                 <li class="list-group-item">
                     <label for="exampleInputEmail1" class="form-label">Task Name</label>
@@ -56,8 +56,8 @@
                         <li class="list-group-item" th:text="*{task.getName()}"></li>
                         <li class="list-group-item" th:text="*{task.getTask_start()}"></li>
                         <li class="list-group-item" th:text="*{task.getTask_end()}"></li>
-                        <li class="list-group-item"><input type="button" class="btn btn-primary" value="Edit" th:onclick="editTask([[${task.getId()}]])"></li>
-                        <li class="list-group-item"><input type="button" class="btn btn-danger" value="Delete" th:onclick="deleteTask([[${task.getId()}]])"></li>
+                        <li class="list-group-item"><a class="btn btn-primary" th:href="@{'/task/'+ ${task.getId()}}">Edit</a></li>
+                        <li class="list-group-item"><a class="btn btn-danger" th:onclick="deleteTask([[${task.getId()}]])">Delete</a></li>
                     </ul>
                 </li>
             </ul>
