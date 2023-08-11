@@ -44,6 +44,7 @@
             <ul id="table-box" class="list-group list-group-horizontal">
                 <li class="list-group-item">ID</li>
                 <li class="list-group-item">TASK</li>
+                <li class="list-group-item">STATUS</li>
                 <li class="list-group-item">START</li>
                 <li class="list-group-item">END</li>
                 <li class="list-group-item">MOD</li>
@@ -54,6 +55,7 @@
                     <ul id="table" class="list-group list-group-horizontal">
                         <li class="list-group-item" th:text="*{task.getId()}"></li>
                         <li class="list-group-item" th:text="*{task.getName()}"></li>
+                        <li class="list-group-item" th:text="status"></li>
                         <li class="list-group-item" th:text="*{task.getTask_start()}"></li>
                         <li class="list-group-item" th:text="*{task.getTask_end()}"></li>
                         <li class="list-group-item"><a class="btn btn-primary" th:href="@{'/task/'+ ${task.getId()}}">Edit</a></li>
