@@ -18,7 +18,7 @@
       </nav>
     </header>
     <main>
-        <form method="post" th:object="${tasks}" th:action="@{/updateTask}">
+        <form method="put" th:object="${tasks}" th:action="@{'/updateTask/'+${task.getId()}}">
             <ul class="list-group">
                 <li class="list-group-item">
                     <label class="form-label">ID</label>
