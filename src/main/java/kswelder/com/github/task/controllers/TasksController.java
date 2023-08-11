@@ -46,9 +46,9 @@ public class TasksController implements WebMvcConfigurer {
 
         return "retorno";
     }
-    @PutMapping("/updateTask/{id}")
-    public String updateTask(@PathVariable("id") String id,@ModelAttribute("tasks") Task task) {
-        tasksService.updateTask(id, task);
+    @PutMapping("/updateTask")
+    public String updateTask(@ModelAttribute("tasks") Task task) {
+        tasksService.updateTask(task);
         return "home";
     }
     @DeleteMapping("/deleteTask/{id}")
