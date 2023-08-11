@@ -21,8 +21,8 @@
         <form method="put" th:object="${tasks}" th:action="@{'/updateTask/'+${task.getId()}}">
             <ul class="list-group">
                 <li class="list-group-item">
-                    <label class="form-label">ID</label>
-                    <input name="id" class="form-control" type="text" th:value="${task.getId()}">
+                    <label class="form-label">ID: </label>
+                    <label class="form-label" th:text="${task.getId()}"></label>
                 </li>
                 <li class="list-group-item">
                     <label class="form-label">Task Name</label>
