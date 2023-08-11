@@ -5,12 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import kswelder.com.github.task.models.Task;
@@ -46,17 +44,17 @@ public class TasksController implements WebMvcConfigurer {
 
         return "retorno";
     }
-    @PutMapping("/updateTask/{id}")
+    @GetMapping("/updateTask/{id}")
     public String updateTask(@PathVariable("id") String id,@ModelAttribute("tasks") Task task) {
         tasksService.updateTask(id, task);
         return "redirect:/";
     }
-    @DeleteMapping("/deleteTask/{id}")
+    @GetMapping("/deleteTask/{id}")
     public String deleteTask(@PathVariable("id") String id, final Model model) {
         tasksService.deleteTask(id);
 
         model.addAttribute("message", "Task deleted");
 
-        return "redirect:retorno";
+        return "retorno";
     }
 }
