@@ -29,8 +29,8 @@ public class TasksService {
         }
         repository.save(task);
     }
-    public void updateTask(Task task) {
-        Task register = repository.findById(task.getId()).get();
+    public void updateTask(String id, Task task) {
+        Task register = repository.findById(id).get();
         if (Optional.of(task.getName()).isPresent()) {
             register.setName(task.getName());
         }
