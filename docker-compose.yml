@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:16
+    restart: always
+    container_name: postgres_database_task
+    ports:
+      - "5432:5432"
+    networks:
+      - msnetwork
+    environment:
+      - POSTGRES_DB=mydb
+      - POSTGRES_USER=kswelder
+      - POSTGRES_PASSWORD=5544
+
+  adminer:
+    image: adminer
+    restart: always
+    container_name: adminer_task
+    ports:
+      - "3333:8080"
+    networks:
+      - msnetwork
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_task
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "email@email.com"
+      PGADMIN_DEFAULT_PASSWORD: "kswelder"
+    ports:
+      - "15432:80"
+    depends_on:
+      - postgres
+    networks:
+      - msnetwork
+
+networks:
+  msnetwork:
+    driver: bridge
