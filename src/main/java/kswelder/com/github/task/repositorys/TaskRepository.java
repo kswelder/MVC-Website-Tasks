@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import kswelder.com.github.task.models.Task;
 
 @Repository
-public interface TasksRepository extends JpaRepository<Task, String>{
+public interface TaskRepository extends JpaRepository<Task, String>{
     Task findByName(String name);
 }
